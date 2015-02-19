@@ -1,4 +1,10 @@
 [Jasypt]
+# Jasypt is used to decrypt the 'encrypted_password' option in the [Email] section, and textddate 
+# will use the value of the environment variable named by the 'passwd_env_var' option as the 
+# decryption password. 
+# There are two required options in this section:
+# install_path -> the full path to the Jasypt installation directory
+# passwd_env_var -> the name of the environment variable in which the Jasypt password is stored
 install_path=/opt/jasypt-1.9.2
 passwd_env_var=TEXTDDATE_PW
 
