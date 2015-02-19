@@ -1,0 +1,13 @@
+[Jasypt]
+install_path=/opt/jasypt-1.9.2
+passwd_env_var=TEXTDDATE_PW
+
+[Email]
+username=CHANGEME@gmail.com
+encrypted_password=CHANGEME
+smtp_host=smtp.gmail.com
+smtp_port=587
+
+[Message]
+ddate_format_string=+Today is %{%A, the %e of %B%}, in the Yold %Y.%N%nCelebrate %H! 
+recipients=CHANGEME@vtext.com
