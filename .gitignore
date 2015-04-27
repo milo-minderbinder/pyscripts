@@ -1,3 +1,5 @@
+Dockerfile
+run-pyscripts.sh
 *.swp
 *.swo
 *.pyc
