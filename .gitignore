@@ -1,5 +1,7 @@
 Dockerfile
+.dockerignore
 run-pyscripts.sh
+*.log
 *.swp
 *.swo
 *.pyc
