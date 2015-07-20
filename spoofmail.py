@@ -26,10 +26,10 @@ def main():
     client = smtplib.SMTP(args.smtp_server,
                           args.smtp_port,
                           args.local_hostname)
-    print str(client.ehlo_or_helo_if_needed())
-    print msg
-    print str(client.sendmail(args.sender, args.recipient, msg.as_string()))
-    print str(client.quit())
+    print(str(client.ehlo_or_helo_if_needed()))
+    print(msg)
+    print(str(client.sendmail(args.sender, args.recipient, msg.as_string())))
+    print(str(client.quit()))
 
 
 if __name__ == '__main__':
