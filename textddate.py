@@ -1,9 +1,9 @@
-#!/usr/bin/python
+#!/usr/bin/env python
 import os
 import os.path
 import subprocess
 import configparser
-from .client import mailer
+import mailer
 
 
 CONFIG_FILE = os.path.join(os.path.dirname(__file__), 'mailer.conf')
