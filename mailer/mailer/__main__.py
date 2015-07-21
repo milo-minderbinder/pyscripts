@@ -29,6 +29,8 @@ def main():
     parser.add_argument('-r', '--recipients',
                         required=True,
                         help='Comma separated list of recipients')
+    parser.add_argument('-s', '--subject',
+                        help='Subject line of email')
     parser.add_argument('message', help='Email message body')
     args = parser.parse_args()
 
@@ -37,7 +39,8 @@ def main():
                     password=args.password,
                     use_tls=args.use_tls,
                     local_hostname=args.local_hostname)
-    client.send_text(args.recipients.split(','), args.message)
+    client.send_text(args.recipients.split(','), args.message,
+                     subject=args.subject)
 
 
 if __name__ == '__main__':
