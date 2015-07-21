@@ -6,3 +6,5 @@ run-pyscripts.sh
 *.swo
 *.pyc
 *.conf
+.idea/
+*.egg-info/

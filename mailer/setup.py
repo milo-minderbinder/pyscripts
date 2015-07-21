@@ -15,5 +15,10 @@ setup(
         'Programming Language :: Python :: 3.4'
     ],
     keywords='email sms mms messaging',
-    packages=find_packages(exclude=['tests*'])
+    packages=find_packages(exclude=['tests*']),
+    entry_points={
+        'console_scripts': [
+            'mailer = mailer.__main__:main'
+        ]
+    }
 )
