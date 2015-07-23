@@ -2,6 +2,7 @@
 
 import argparse
 from .client import Mailer
+from smsgateways import us_gateways
 
 
 def main():
@@ -28,19 +29,33 @@ def main():
                         help='Sender email password')
     parser.add_argument('-r', '--recipients',
                         required=True,
-                        help='Comma separated list of recipients')
+                        help=('Comma separated list of recipients. Recipient '
+                              'addresses can be in either the standard email '
+                              'addresses form (e.g. "bob@example.com") or in a '
+                              'special SMS address format, if sending an email '
+                              'to a cell phone as an SMS (text) message. To '
+                              'send an SMS message, recipient addresses should '
+                              'be in the form <10_digit_cell_number>@<carrier> '
+                              '(e.g. "2021234567@US Cellular"). '
+                              'Accepted US Cell Carriers are: %s' %
+                              str(us_gateways.keys())))
     parser.add_argument('-s', '--subject',
                         help='Subject line of email')
     parser.add_argument('message', help='Email message body')
     args = parser.parse_args()
 
+    recipients = []
+    for recipient in [r.strip() for r in args.recipients.split(',')]:
+        parts = recipient.split('@')
+        if parts[1] in us_gateways:
+            parts[1] = us_gateways[parts[1]].sms
+        recipients.append('@'.join(parts))
     client = Mailer(args.email, args.server,
                     port=args.port,
                     password=args.password,
                     use_tls=args.use_tls,
                     local_hostname=args.local_hostname)
-    client.send_text(args.recipients.split(','), args.message,
-                     subject=args.subject)
+    client.send_text(recipients, args.message, subject=args.subject)
 
 
 if __name__ == '__main__':
