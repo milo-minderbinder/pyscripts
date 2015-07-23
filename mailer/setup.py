@@ -9,7 +9,7 @@ setup(
     author_email='minderbinder.enterprises@gmail.com',
     classifiers=[
         'Development Status :: 3 - Alpha',
-        'Intended Audience "" Developers',
+        'Intended Audience :: Developers',
         'Topic :: Software Development :: Tools',
         'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3.4'
